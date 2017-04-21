@@ -1,0 +1,8 @@
+Django
+Pillow
+Pygments
+argparse
+django-registration-redux
+django-simple-captcha
+six
+wsgiref
