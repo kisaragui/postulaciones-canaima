@@ -21,7 +21,6 @@ module.exports = {
     
     plugins: [
         new BundleTracker({filename: './webpack-stats.json'}),
-        new ExtractTextPlugin('style.css')
     ],
 
     module: {
@@ -42,7 +41,11 @@ module.exports = {
             fallback: 'style-loader',
             use: ['css-loader', 'sass-loader']
           })
-        }
+        },
+        {
+          test: /\.(png|jpg)$/,
+          loader: 'url?limit=25000'
+        }  
       ]
     }
 };

@@ -72,7 +72,7 @@ class AcordionPaquetes extends React.Component {
 
   render() {
 
-  
+   
   }
 
 }
