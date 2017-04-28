@@ -16,11 +16,13 @@ module.exports = {
     },
 
     resolve: {
-      extensions: ['.js', '.jsx']
+      extensions: ['.js', '.css', '.json'],
+      modules: ['node_modules']
     },
     
     plugins: [
         new BundleTracker({filename: './webpack-stats.json'}),
+        new ExtractTextPlugin('[name]-[hash].css'),
     ],
 
     module: {
@@ -36,10 +38,21 @@ module.exports = {
           }
         },
         {
-          test: /\.scss$/,
+          test: /(\.css|scss)$/,
           use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: ['css-loader', 'sass-loader']
+            fallback: "style-loader",
+            use: [
+                {
+                  loader: "css-loader",
+                  options: {
+                    sourceMap: true,
+                    modules: true,
+                    importLoaders: true,
+                    localIdentName: "[name]__[local]___[hash:base64:5]"
+                  }
+                },
+                "postcss-loader"
+            ]
           })
         },
         {
