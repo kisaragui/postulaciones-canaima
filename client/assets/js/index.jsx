@@ -4,51 +4,67 @@ import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/link';
 import Ripple from 'react-toolbox/lib/ripple';
-import theme from 'react-toolbox/lib/ripple/theme';
-const styles = { 
-	img:{
-    	margin: "5px",
-    },
-    Toolbar:{
-    	backgroundColor: "#622F96",
-    	padding:"2px",
-    }	
-}
-
+import theme from '../css/index.css';
+import { ThemeProvider } from 'react-css-themr';
+import { Menu, MenuItem } from 'react-toolbox/lib/menu';
 function handleTouchTap() {
   ;
 }
 
- const actions = [
-  { label: 'Alarm', raised: true},
-  { label: 'Location', raised: true, accent: true}
-];
 
-const RippleLink = Ripple({spread: 1})(Link); 
 
 class BarraNav extends React.Component {
 
 	constructor(props) {
     super(props)
-  }
+    	this.state = { 
+    		active: false 
+    	}
+  	
+    	this.handleButtonClick = this.handleButtonClick.bind(this);
+    	this.handleMenuHide = this.handleMenuHide.bind(this)
+  	}
  
+  	handleButtonClick() {
+  		this.setState({ 
+  			active: true 
+  		})
+  	};
+  
+  	handleMenuHide() {
+  		this.setState({ 
+  			active: false 
+  		})
+	};
 
 	render() {
   		
 		return (
-			<AppBar>
-				 <Navigation type='horizontal' actions={actions} />
-				<Navigation type='horizontal'>
 
-					<RippleLink href='#' label='Inbox' theme={theme.prorippleWrapper}></RippleLink>
-					<RippleLink href='#' active label='Profile' />
+			<AppBar theme={theme}>
+				<Logo/>
+				<Navigation type='horizontal' className={theme.navigation}>
+				<ul>
+					<li>
+						<Link href='#' onClick={this.handleButtonClick} label='Usuarios' className={theme.link} icon="person" />
+        					<Menu  theme={theme} position="static" active={this.state.active} onHide={this.handleMenuHide} >
+        						<MenuItem value='download' icon='get_app' caption='Download' />
+    							<MenuItem value='help' icon='favorite' caption='Favorite' />
+    							<MenuItem value='settings' icon='open_in_browser' caption='Open in app' />
+    							<MenuItem value='signout' icon='delete' caption='Delete' disabled />
+							</Menu>
+					</li>
+
+					<li><Link href='#' label='Paquetes' className={theme.link} /></li>
+					
+				</ul>
 				</Navigation>
 			</AppBar>
 		)
 	}
 }
 
-const Logo = props => <img src="/assets/imagenes/canaima-logo_white.png" width="60%" alt="canaima-logo-Blanco" />;
+const Logo = () => <img src="/assets/imagenes/canaima-logo_white.png" width="13%" alt="canaima-logo-Blanco" />;
 
 
 	/**return (	
