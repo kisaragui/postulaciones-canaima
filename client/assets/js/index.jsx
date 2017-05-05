@@ -1,12 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AppBar from 'react-toolbox/lib/app_bar';
-import Navigation from 'react-toolbox/lib/navigation';
-import Link from 'react-toolbox/lib/link';
-import Ripple from 'react-toolbox/lib/ripple';
-import theme from '../css/index.css';
-import { ThemeProvider } from 'react-css-themr';
-import { Menu, MenuItem } from 'react-toolbox/lib/menu';
+import { Menu } from 'semantic-ui-react'
+
 function handleTouchTap() {
   ;
 }
@@ -18,17 +13,15 @@ class BarraNav extends React.Component {
 	constructor(props) {
     super(props)
     	this.state = { 
-    		active: false 
+    		activeItem: 'home' 
     	}
   	
-    	this.handleButtonClick = this.handleButtonClick.bind(this);
-    	this.handleMenuHide = this.handleMenuHide.bind(this)
+    	this.handleItemClick = this.handleItemClick.bind(this);
+    	
   	}
  
-  	handleButtonClick() {
-  		this.setState({ 
-  			active: true 
-  		})
+  	handleItemClick(e, { name }) {
+  		this.setState({ activeItem: name })
   	};
   
   	handleMenuHide() {
@@ -38,28 +31,17 @@ class BarraNav extends React.Component {
 	};
 
 	render() {
-  		
+  		const { activeItem } = this.state
 		return (
 
-			<AppBar theme={theme}>
-				<Logo/>
-				<Navigation type='horizontal' className={theme.navigation}>
-				<ul>
-					<li>
-						<Link href='#' onClick={this.handleButtonClick} label='Usuarios' className={theme.link} icon="person" />
-        					<Menu  theme={theme} position="static" active={this.state.active} onHide={this.handleMenuHide} >
-        						<MenuItem value='download' icon='get_app' caption='Download' />
-    							<MenuItem value='help' icon='favorite' caption='Favorite' />
-    							<MenuItem value='settings' icon='open_in_browser' caption='Open in app' />
-    							<MenuItem value='signout' icon='delete' caption='Delete' disabled />
-							</Menu>
-					</li>
+			 <div>
+        <Menu.Header>
 
-					<li><Link href='#' label='Paquetes' className={theme.link} /></li>
-					
-				</ul>
-				</Navigation>
-			</AppBar>
+          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
+          <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
+        </Menu.Header>
+        </div>
 		)
 	}
 }
