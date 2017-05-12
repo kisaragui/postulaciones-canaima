@@ -22,7 +22,11 @@ module.exports = {
     
     plugins: [
         new BundleTracker({filename: './webpack-stats.json'}),
-        new ExtractTextPlugin('[name]-[hash].css'),
+        new ExtractTextPlugin({
+          filename: "[name]-[hash].css",
+          disable: false,
+          allChunks: true
+        }),
     ],
 
     module: {
@@ -45,18 +49,15 @@ module.exports = {
                 {
                   loader: "css-loader",
                   options: {
-                    sourceMap: true,
-                    modules: true,
-                    importLoaders: true,
-                    localIdentName: "[name]__[local]___[hash:base64:5]"
-                  }
-                },
+                    sourceMap: true,  
+                  }, 
+                },   
             ]
           })
         },
         {
-          test: /\.(png|jpg)$/,
-          loader: 'url?limit=25000'
+          test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, 
+          use: 'url-loader?limit=100000'
         }  
       ]
     }

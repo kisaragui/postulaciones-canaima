@@ -1,10 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Menu } from 'semantic-ui-react'
-
-function handleTouchTap() {
-  ;
-}
+import { Navbar, NavbarHeader, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 
 
@@ -30,30 +26,55 @@ class BarraNav extends React.Component {
   		})
 	};
 
+	
 	render() {
+
   		const { activeItem } = this.state
+
 		return (
-
-			 <div>
-        <Menu.Header>
-
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
-          <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
-        </Menu.Header>
-        </div>
+			<Navbar>
+   				<Navbar.Header>
+   					<Logo />
+   				</Navbar.Header>
+   				<Nav>
+      			<NavItem eventKey={1} href="#">Link</NavItem>
+      			<NavItem eventKey={2} href="#">Link</NavItem>
+      				<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+        				<MenuItem eventKey={3.1}>Action</MenuItem>
+        				<MenuItem eventKey={3.2}>Another action</MenuItem>
+        				<MenuItem eventKey={3.3}>Something else here</MenuItem>
+        				<MenuItem divider />
+        				<MenuItem eventKey={3.4}>Separated link</MenuItem>
+      				</NavDropdown>
+    			</Nav>
+    		</Navbar>
 		)
 	}
 }
 
-const Logo = () => <img src="/assets/imagenes/canaima-logo_white.png" width="13%" alt="canaima-logo-Blanco" />;
+const tema = {
+    nav:{
+    	background: "#622F96",
+    	minHeight: "4em"	
+    },
+   	img: {
+		width: "8em"
+	},
+	navItems:{
+		position: "initial",
+
+		hover:{
+			background: "#aaa",
+
+		}
+	},
+			
+}
 
 
-	/**return (	
-		<MuiThemeProvider >
-			<RaisedButton  label="botonsito" backgroundColor={cyan500} labelColor={pink400} />
-		</MuiThemeProvider>
-	);**/
+const Logo = () => <img src="/assets/imagenes/canaima-logo_white.png" style={tema.img} alt="canaima-logo-Blanco" />;
+
+
 
 
 ReactDOM.render(<BarraNav  />, document.getElementById('nav'));
