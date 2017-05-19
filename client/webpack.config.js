@@ -6,7 +6,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 
     entry: {
-      index: './assets/js/index.jsx',
+      nav: './assets/js/nav.jsx',
+      footer:'./assets/js/footer.jsx',
       app: './assets/js/app.js'
     },
 

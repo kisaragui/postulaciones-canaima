@@ -1,0 +1,169 @@
+/* ---------- barra de navegacion ---------- */
+.navbar {
+  background-color: #622f96 !important; 
+  border-radius: 0;
+  border: 0;
+}
+
+.navbar .nav > li > a {
+  color: #ffffff;
+  font-weight: bold;
+
+}
+.fa-2x {
+    padding: 0 5px;
+}
+
+.navbar .nav > li > a:hover {
+
+    font-weight: bold;
+    color: #622f96;
+    background-color: #d1c4e9;
+    transition: background-color .3s;
+
+}
+
+.navbar .nav > .open > a:focus {
+    font-weight: bold;
+    color: #622f96;
+    background-color: #d1c4e9;
+    transition: background-color .3s;
+}
+
+.dropdown-menu > li > a {
+  font-weight: bold;
+  font-size: 11px;
+  color: #622f96;
+  display: block;
+  line-height: 22px;
+  padding: 14px 16px;
+  text-transform: uppercase;
+  text-align: center; 
+}
+
+.dropdown-menu > li > a:hover{
+  
+  font-weight: bold;
+  color: #622f96;
+  background-color: #d1c4e9;
+  transition: background-color .3s;
+  line-height: 22px;
+  padding: 14px 16px;
+
+}
+
+.dropdown-menu {
+  padding: 0;
+
+}
+/* ----------------  footer --------------------*/  
+
+.color-twitter:hover{
+
+ color: #55acee;
+ transition: background-color .3s;
+}
+
+.color-youtube:hover{
+
+  color: #bb0000;
+  transition: background-color .3s;
+}
+
+.footer-1{
+  font-weight: bold;
+  background-color: #916db5 !important;
+  color:#ffffff;
+  padding: 10px;
+
+} 
+
+a {
+  color: #ffffff;
+}
+
+a:hover, a:focus {
+  color: #ffffff;
+  text-decoration: none;
+} 
+
+.footer-2 {
+  font-weight: bold;
+  background-color: #c0abd5;
+  color: #000000  ; 
+  padding: 15px;
+  text-align: center;
+
+}
+/* --------------pagina principal ------------------*/
+
+.index-banner {
+   
+    margin-top: 150px;
+    margin-bottom: 150px;
+    position: relative;
+    background-color: white;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/*--------------------------------------------------*/
+
+
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  background-color: #622f96;
+  font-weight: bold;
+}
+
+
+table.centrar {
+margin-left: 170px;
+width: 90%;
+}
+
+
+div.input-field.centrar {
+  margin-top: 0px;
+
+} 
+.input-field label.etiqueta {
+  left: 0px;
+
+}
+
+.input-field label.etiqueta.active {
+  font-size: 0.8rem;
+  -webkit-transform: translateY(-140%);
+  transform: translateY(-140%);
+
+}

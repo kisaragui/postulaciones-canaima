@@ -6,6 +6,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <title>{% block title %} Canaima GNU/Linux {% endblock %}</title>
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-G3G7OsJCbOk1USkOY4RfeX1z27YaWrZ1YuaQ5tbuawed9IoreRDpWpTkZLXQfPm3" crossorigin="anonymous">
 </head>
 <body>
@@ -54,8 +55,10 @@
 <main>
     {% block content %}  {% endblock %}<br></br>
 </main>
- <footer class="page-footer">
-        <div class="container">
+ <footer>
+ <div id="footer"></div> 
+
+<!--         <div class="container">
           <div class="row">
             <div class="col s4">
               <h5 class="white-text">Canaima GNU/Linux</h5>
@@ -80,8 +83,9 @@
                 <li><a href="https://twitter.com/CanaimaGNULinux" class="twitter-follow-button" data-show-count="false">Follow @CanaimaGNULinux</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
               </ul>
-            </div>
+            </div> -->
   </footer>
-  {% render_bundle 'index' %}
+  {% render_bundle 'nav' %}
+  {% render_bundle 'footer' %}
   </body>
 </html>
